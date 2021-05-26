@@ -41,7 +41,7 @@ const orderSchema = mongoose.Schema(
         type: String,
         required: true,
       },
-      postalCode: {
+      postalcode: {
         type: String,
         required: true,
       },
@@ -52,7 +52,7 @@ const orderSchema = mongoose.Schema(
     },
     paymentMethod: {
       type: String,
-      required: true,
+      // required: true,
     },
     paymentResult: {
       id: {

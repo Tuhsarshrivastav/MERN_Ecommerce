@@ -83,6 +83,5 @@ module.exports = {
   authController,
   getUserProfile,
   registerUser,
-  getUserProfile,
   updateUserProfile,
 };
