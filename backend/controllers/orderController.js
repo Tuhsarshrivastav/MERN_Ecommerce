@@ -31,10 +31,13 @@ const addOrderItem = asyncHandler(async (req, res) => {
     res.status(201).json(createOrder);
   }
 });
+
+//getOrderByID
 const getOrderById = asyncHandler(async (req, res) => {
-  const order = await (
-    await Order.findById(req.params.id)
-  ).populated("user", "name,email");
+  const order = await Order.findById(req.params.id).populate(
+    "user",
+    "name email"
+  );
   if (order) {
     res.json(order);
   } else {
@@ -43,6 +46,7 @@ const getOrderById = asyncHandler(async (req, res) => {
   }
 });
 
+//paidendpoint
 const updateOrderToPaid = asyncHandler(async (req, res) => {
   const order = await Order.findById(req.params.id);
   if (order) {
@@ -62,4 +66,4 @@ const updateOrderToPaid = asyncHandler(async (req, res) => {
   }
 });
 
-module.exports = { addOrderItem, getOrderById,updateOrderToPaid };
+module.exports = { addOrderItem, getOrderById, updateOrderToPaid };
