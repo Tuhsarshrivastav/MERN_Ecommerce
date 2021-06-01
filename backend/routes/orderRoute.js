@@ -3,9 +3,13 @@ const {
   addOrderItem,
   getOrderById,
   updateOrderToPaid,
+  getMyOrders,
 } = require("../controllers/orderController");
 const { protect } = require("../middlewares/authMiddleware");
 const router = express.Router();
+
+//getUserOrder
+router.route("/myorders").get(protect, getMyOrders);
 
 //get order by id
 router.route("/:id").get(protect, getOrderById);
